@@ -26,8 +26,11 @@ def evaluate():
         result = str(eval(expression))
         equation.set(result)
         expression = ""
+    except(ZeroDivisionError):
+        equation.set("Math Error")
+        expression = ""
     except:
-        equation.set("error")
+        equation.set("Syntax Error")
         expression = ""
 
 def clear():
