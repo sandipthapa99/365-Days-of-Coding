@@ -2,6 +2,7 @@
 
 # Importing Tkinter module
 from tkinter import *
+import tkinter.font as font
 
 # Global variable to store expression to calculate
 expression = ""
@@ -28,6 +29,11 @@ def evaluate():
     except:
         equation.set("error")
         expression = ""
+
+def clear():
+    global expression
+    expression = ""
+    equation.set("")
 
 # Driver code
 if __name__ == "__main__":
@@ -107,7 +113,7 @@ if __name__ == "__main__":
     command=lambda: keyPress('-'),height=3,width=7)
     minus.grid(row=3,column=3,pady=5)
 
-    multiply = Button(root, text='*',fg=fgcolor,bg=bgcolor2, 
+    multiply = Button(root, text='x',fg=fgcolor,bg=bgcolor2, 
     command=lambda: keyPress('*'),height=3,width=7)
     multiply.grid(row=4,column=3,pady=5)
 
@@ -115,10 +121,10 @@ if __name__ == "__main__":
     command=lambda: keyPress('/'),height=3,width=7)
     divide.grid(row=5,column=3,pady=5)
 
-    clear = Button(root, text='AC',fg=fgcolor,bg=bgcolor2,height=3,width=7)
+    clear = Button(root, text='AC',fg=fgcolor,bg='red',command=clear,height=3,width=7)
     clear.grid(row=6,column=3)
 
-    exit = Button(root, text='Exit',fg=fgcolor,bg=bgcolor2,height=3,width=7)
+    exit = Button(root, text='Exit',fg=fgcolor,bg='red',command=root.destroy,height=3,width=7)
     exit.grid(row=6,column=2)
 
     equals = Button(root, text='=',fg=fgcolor,bg=bgcolor2,command=evaluate,height=3,width=7)
