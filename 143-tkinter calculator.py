@@ -38,6 +38,15 @@ def clear():
     expression = ""
     equation.set("")
 
+def factorial(n):
+    try:
+        if n==0:
+            return 1
+        else:
+            return n*factorial(n-1)
+    except:
+        pass
+
 # Driver code
 if __name__ == "__main__":
     fgcolor = '#000'
@@ -57,10 +66,10 @@ if __name__ == "__main__":
     equation = StringVar()
 
     # expression entry box
-    expression_box = Entry(root, textvariable=equation)
+    expression_box = Entry(root, textvariable=equation,bd=4,justify='right')
 
     # placing the expression box in the window
-    expression_box.grid(row=0,columnspan=4, ipadx=85,ipady=10,pady=15)
+    expression_box.grid(row=0,columnspan=4,ipadx=80,ipady=10,pady=15,padx=5)
 
     # creating buttons and placing them in positions
     # upon pressing the button, respective command is executed
@@ -132,6 +141,9 @@ if __name__ == "__main__":
 
     equals = Button(root, text='=',fg=fgcolor,bg=bgcolor2,command=evaluate,height=3,width=7)
     equals.grid(row=5,column=2,pady=5)
+
+    factorial = Button(root, text='!',fg=fgcolor,bg=bgcolor2,command=factorial(expression),height=3,width=7)
+    factorial.grid(row=6,column=1,pady=5)
 
     # start the program
     root.mainloop()
