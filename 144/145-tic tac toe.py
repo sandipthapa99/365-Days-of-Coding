@@ -3,7 +3,7 @@ import tkinter.messagebox
 
 root = Tk()
 root.geometry("1100x500")
-# root.resizable(0,0)
+root.resizable(0,0)
 root.title("Tic Tac Toe")
 
 MainFrame = Frame(root, bg='#282C35',bd=10,padx=2,pady=2,width=1350,height=600,relief=RIDGE)
