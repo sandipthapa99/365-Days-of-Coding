@@ -5,20 +5,20 @@ class Node:
         self.left = left
         self.right = right
  
-def inorder(root):
- 
+def preorder(root):
+     
     # return if the current node is empty
     if root is None:
         return
  
-    # Traverse the left subtree
-    inorder(root.left)
- 
-    # Display the data part of the root (or current node)
+    # Display the data part of the root or current node
     print(root.data, end=' ')
  
+    # Traverse the left subtree
+    preorder(root.left)
+ 
     # Traverse the right subtree
-    inorder(root.right)
+    preorder(root.right)
  
  
 if __name__ == '__main__':
@@ -45,10 +45,10 @@ if __name__ == '__main__':
     root.right.left.left = Node(7)
     root.right.left.right = Node(8)
  
-    inorder(root)
-
+    preorder(root)
+ 
 # --------
 # Result:
-# ------------------------------------------------------
-# 4 2 1 7 5 8 3 6 
-# ------------------------------------------------------
+# --------------------------------------------------------
+# 1 2 4 3 5 7 8 6 
+# --------------------------------------------------------
